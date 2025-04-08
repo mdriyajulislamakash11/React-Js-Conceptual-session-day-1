@@ -2,7 +2,7 @@ import React from 'react'
 import Product from './Product'
 
 function Products({info}) {
-    console.log(info)
+    // console.log(info)
   return (
     <div>
         <h2>im Products </h2>
