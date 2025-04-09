@@ -15,6 +15,12 @@ function App() {
   const [count, setCount] = useState(0)
   const [state, setState] = useState(true);
 
+  const handleMasssge = (massages) => {
+    console.log(massages)
+  };
+
+  console.log(state)
+
   const handleState = () => {
     setState(!state)
     console.log(state)
@@ -44,13 +50,14 @@ function App() {
       <hr />
 
       {/* conditional rendaring */}
-      {
+      {/* {
         state ? <World /> : <Country />
-      }
+      } */}
 
-
+        <Country transfer={handleMasssge}></Country>
 
       <button onClick={handleState}>Hanle Tate</button>  
+      
       <h3>count: {count}</h3>
       <button onClick={ handleStateCount}>State Count</button>
 
