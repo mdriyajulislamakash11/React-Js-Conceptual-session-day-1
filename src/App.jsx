@@ -2,16 +2,29 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Products from "./Components/Products";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import World from "./Components/World";
+import Country from "./Components/Country";
 
 function App() {
-  const information = {
-    name: "nayok",
-    phone: 10126272,
-    money: 20000,
-  };
-
+  // const information = {
+  //   name: "nayok",
+  //   phone: 10126272,
+  //   money: 20000,
+  // };
   const [count, setCount] = useState(0)
+  const [state, setState] = useState(true);
+
+  const handleState = () => {
+    setState(!state)
+    console.log(state)
+  }
+
+  // dependency ache state name joto bar ami btn a click korbo totobar useEffect auto call hobe
+  useEffect(() => {
+    console.log("hello i am useEffect")
+  },[count])
+
   const handleStateCount = () => {
     const incres = count + 1;
     setCount(incres);
@@ -30,11 +43,18 @@ function App() {
       <h2>Hello React World</h2>
       <hr />
 
-      <h3>count: {count}</h3>
+      {/* conditional rendaring */}
+      {
+        state ? <World /> : <Country />
+      }
 
+
+
+      <button onClick={handleState}>Hanle Tate</button>  
+      <h3>count: {count}</h3>
       <button onClick={ handleStateCount}>State Count</button>
 
-      <Products info={information} />
+      {/* <Products info={information} /> */}
     </>
   );
 }
